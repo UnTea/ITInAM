@@ -27,5 +27,11 @@ def forms():
     return render_template('forms.html', forms=forms_list)
 
 
+@app.route('/view_form/<int:index>')
+def view_form(index):
+    form = forms_list[index]
+    return render_template('view_form.html', form=form)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
