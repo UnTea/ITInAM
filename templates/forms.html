@@ -14,10 +14,13 @@
         <strong>Имя:</strong> {{ form['name'] }}<br>
         <strong>Email:</strong> {{ form['email'] }}<br>
         <strong>Категория:</strong> {{ form['category'] }}<br>
+
         <a href="{{ url_for('view_form', index=loop.index0) }}">Просмотреть</a>
     </li>
     <hr>
     {% endfor %}
 </ul>
+
+<a href="{{ url_for('index') }}">Меню</a>
 </body>
 </html>
