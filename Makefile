@@ -1,7 +1,16 @@
-docker:
-	docker build . -t flask_app
+container_port = 5000
+docker_port = 5000
+image_name = web_server_image
+container_name = web_server
+is_debug = 1
+
+build:
+	docker build . -t $(image_name)
 
 run:
-	docker run -p 5000:5000 -e DEBUG=1 flask_app
+	docker run --name $(container_name) -p $(docker_port):$(container_port) -e DEBUG=$(is_debug) $(image_name)
 
-.PHONY: docker
+stop:
+	docker stop $(container_name)
+
+.PHONY: build run stop
