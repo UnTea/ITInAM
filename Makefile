@@ -10,7 +10,11 @@ build:
 run:
 	docker run --name $(container_name) -p $(docker_port):$(container_port) -e DEBUG=$(is_debug) $(image_name)
 
+start:
+	docker start $(container_name)
+
 stop:
 	docker stop $(container_name)
 
-.PHONY: build run stop
+
+.PHONY: start build run stop
